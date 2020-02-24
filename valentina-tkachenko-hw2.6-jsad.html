@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div id="one" onclick="setNewDiv(this)">one</div> 
+    <script>
+		var setNewDiv = function() {
+			var findId = document.getElementById('one');
+		var newDiv = findId.cloneNode(true);
+		newDiv.innerHTML = 'two';
+		findId.insertAdjacentElement('afterEnd', newDiv);
+		newDiv.id = 'two';
+		newDiv.onclick = function() {
+			var twoDiv = newDiv.cloneNode(true);
+			newDiv.insertAdjacentElement('beforeBegin', twoDiv);
+			newDiv.id = 'two_second';
+			twoDiv.id = 'two_first';
+		}
+	}
+
+    // Добавьте после дива с id=one еще один див с текстом two и id=two
+    // На клик по id=two добавьте перед ним див с id - two_first, а див с id=two измените на two_second 
+    </script>
+</body>
+</html>

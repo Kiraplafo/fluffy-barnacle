@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Attr</title>
+    <!-- <style>
+        /* <--собирает все ссылки, которые есть--> 
+        <!-- a[target] { 
+            background-color: yellow;
+        }
+        a[target='_blank'] { /*собирает все ссылки, которые открываются в новом окне*/
+            background-color: red;
+        }
+    </style> --> 
+</head>
+<body>
+    <a href="#" target="_top">w3schools.com</a>
+    <a href="http://www.google.com" target="_blank">google.com</a>
+    <a href="http://www.wikipedia.org" target="_self">wikipedia.org</a>
+    <a href="#">Someting</a>
+    <script type="text/javascript">
+        let linkStyle = document.querySelectorAll('a[target]');
+        linkStyle.forEach(function(link, index, arr) {
+            arr[index].style.backgroundColor = 'yellow';
+        });
+
+        let linkTarBlStyle = document.querySelector('a[target="_blank"]');
+        linkTarBlStyle.style.backgroundColor = 'red';
+    </script>
+</body>
+</html>

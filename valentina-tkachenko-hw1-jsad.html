@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson1</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body>
+   <ul id="myUL">
+       <li>Один</li>
+       <li>Два</li>
+       <li>Три</li>
+   </ul>
+   <input class="first-element" type="button" value="Выделить первый элемент" /><br/>
+   <input class="last-element" type="button" value="Выделить последний элемент"  /><br/>
+   
+   <input class="next-element" type="button" value="Выделить следующий элемент"  /><br/>
+   <input class="prev-element" type="button" value="Выделить предыдущий элемент"  /><br/>
+   
+   <input class="add-element" type="button" value="Добавить элемент"  /><br/>
+   <input class="del-element" type="button" value="Удалить элемент"  /><br/>
+   <input class="add-to-start-element" type="button" value="Добавить элемент в начало"  /><br/>
+  <script type="text/javascript">
+// Выделить первый элемент
+    var firstElement = document.querySelector('.first-element');
+    firstElement.onclick = function() {
+        var firstItem = document.querySelector('#myUL li');  
+        var redElement = document.querySelector('.red');
+        var greenElement = document.querySelector('.green');
+        if(redElement) {
+            redElement.classList.remove('red');
+        } else if(greenElement) {
+            greenElement.classList.remove('green');
+        } 
+            firstItem.classList.add('red');  
+    }
+
+// Выделить последний элемент
+    var lastElement = document.querySelector('.last-element');
+    lastElement.onclick = function() {
+        var lastTeg = document.querySelector('#myUL');
+        var choseElement = lastTeg.lastElementChild;
+        var redElement = document.querySelector('.red');
+        var greenElement = document.querySelector('.green');
+        if(redElement) {
+            redElement.classList.remove('red');
+        } else if(greenElement) {
+            greenElement.classList.remove('green');
+        } 
+        choseElement.classList.add('red');
+    }
+
+//   Добавить элемент
+    var addElement = document.querySelector('.add-element');
+    addElement.onclick = function() {
+        var newItem = document.createElement('li');
+        newItem.innerHTML = 'Добавить элемент';
+        document.querySelector('#myUL').appendChild(newItem);
+    }
+
+// Добавить в начало
+    var addToStartBtn = document.querySelector('.add-to-start-element');
+    addToStartBtn.onclick = function() {
+        var newItem = document.createElement('li');
+        newItem.textContent = 'Добавить в начало';
+        var firstItem = document.querySelector('#myUL li');
+        var list = document.querySelector('#myUL');
+        list.insertBefore(newItem, firstItem);
+    }
+
+// Удалить эелемент
+    var delElement = document.querySelector('.del-element');
+
+    delElement.onclick = function() {
+        var listTeg = document.querySelector('#myUL');
+        var delEl = listTeg.lastElementChild;
+        listTeg.removeChild(delEl);
+        console.log(delEl);
+    }
+
+// // Следующий элемент
+
+    var nextElementBtn = document.querySelector('.next-element');
+    nextElementBtn.onclick = function() {
+        var list = document.querySelectorAll('#myUL li');
+        var redElement = document.querySelector('.red');
+        var greenElement = document.querySelector('.green');
+        if(redElement) {
+            redElement.classList.remove('red');
+            changeClass(redElement);
+        } else if(greenElement) {
+            greenElement.classList.remove('green');
+            changeClass(greenElement);
+        } 
+
+        function changeClass(elem) {
+            var nextElement = elem.nextElementSibling;
+            if (nextElement) {
+            nextElement.classList.add('green');
+        } else {
+            document.querySelector('#myUL li').classList.add('green');
+        }
+    }
+    }
+
+
+// Предыдущий элемент
+var prevElementBtn = document.querySelector('.prev-element');
+prevElementBtn.onclick = function() {
+	var list = document.querySelectorAll('#myUL li');
+	var redElement = document.querySelector('.red');
+    var greenElement = document.querySelector('.green');
+    if(redElement) {
+        redElement.classList.remove('red');
+        changeClass(redElement);
+    } else if(greenElement) {
+        greenElement.classList.remove('green');
+        changeClass(greenElement);
+    } 
+
+    function changeClass(elem) {
+        var nextElement = elem.previousElementSibling;
+        if (nextElement) {
+        nextElement.classList.add('green');
+    } else {
+        var listTeg = document.querySelector('#myUL');
+        var lastEl = listTeg.lastElementChild;
+		lastEl.classList.add('green');
+	}
+}
+}
+</script>
+   
+
+</body>
+</html>

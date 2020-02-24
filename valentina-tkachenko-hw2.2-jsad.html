@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home2</title>
+    <!-- <style>
+        * {
+            color: red;
+            text-decoration: none;
+        }
+        p {
+            color: brown;
+        }
+        .class {
+            color: green;
+        }
+        a {
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: underline;
+        }
+        p, 
+        a {
+            text-transform: uppercase;
+        }
+    </style> -->
+</head>
+<body>
+    <h1 class="class1" id="id1">Title</h1>
+    <p class="class">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    <a href="#">Link</a>
+    <script type="text/javascript">
+        var allHtmlTeg = document.getElementsByTagName("*");
+        function allStyle(arr) {
+            for(var i = 0; i < arr.length; i++) {
+                arr[i].setAttribute('style', 'color: red; text-decoration: none;');
+            }
+        }
+        allStyle(allHtmlTeg);
+        var pStyle = document.getElementsByTagName('p');
+        function parStyle(k) {
+            for(var j = 0; j < k.length; j++) {
+                k[j].setAttribute('style', 'color: brown; text-transform: uppercase;');
+            }
+        }
+        parStyle(pStyle);
+        var linkStyle = document.getElementsByTagName('a');
+        function aStyle(link) {
+                link[0].style.fontWeight = 'bold';
+                link[0].style.fontStyle = 'italic';
+                link[0].style.textDecoration = 'underline';
+                link[0].style.textTransform = 'uppercase';
+        }
+        aStyle(linkStyle);
+        var classStyle = document.getElementsByClassName('class');
+        classStyle[0].style.color = 'green';
+
+        let allTagsWithClass = document.querySelectorAll('.class, .class1');
+        allTagsWithClass.forEach(function(tag){
+            tag.classList.add('newclass');
+            console.log(tag.style.cssText);
+        });
+       var h = document.getElementById('id1');
+        h.setAttribute('style', 'margin-top: 10px; background-color: red;');
+    </script>
+</body>
+</html>
