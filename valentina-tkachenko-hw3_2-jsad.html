@@ -1,0 +1,43 @@
+<!-- 
+
+    Запросите у пользователя ввести какую-то фразу. Отобразите каждое 
+    отдельное слово в виде списка ul li.
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой.
+     Найдите все буквы "а" их количество в модальное окно. 
+ -->
+ 
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <div class="myString"></div>
+    <script>
+        let findMyString = document.querySelector('.myString');
+        let getMyString = prompt('Введите Ваше предложение', '');
+        let subMyString = getMyString.split(' ');
+
+        findMyString.innerHTML = '<ul>';
+        subMyString.forEach(function(item, index,arr){
+            findMyString.innerHTML += '<li>' + item + '</li>';
+        });
+        findMyString.innerHTML += '</ul>';
+        let findMyLi = document.querySelectorAll('li');
+        findMyLi[0].style.textTransform = "uppercase";
+        findMyLi[findMyLi.length-1].style.textTransform = "lowercase";
+        findMyLi[findMyLi.length-2].style.textTransform = "lowercase";
+        let patt = new RegExp('а', 'gi');
+        let resultOfSearch = getMyString.match(patt);
+        if(resultOfSearch > 0) {
+            let showResults = alert("Найдено " + resultOfSearch.length + " совпадений.");
+        } else {
+            let showResults = alert("Совпадений не найдено");
+        }
+        
+        
+    </script>
+
+</body>
+</html>

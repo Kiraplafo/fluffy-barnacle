@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <span class="count-up"></span><Br>
+    <button class="start" value='Начать'>Начать</button>
+    <button class="pause">Пауза</button>
+    <button class="reset-to-zero">Обнулить</button>
+    <button class="reverce">Развернуть</button>
+    <script>
+        let count = document.querySelector('.count-up');
+        let startBtn = document.querySelector('.start');
+        let pauseBtn = document.querySelector('.pause');
+        let resetToZeroBtn = document.querySelector('.reset-to-zero');
+        let reverceBtn = document.querySelector('.reverce');
+        console.log(reverceBtn);
+
+        
+        let startNumber = 0;
+        let finishNaumber = 30;
+        let intervalId = null;
+        let reverceIntervalId = null;
+        let tickIsOn = true;
+        let result = null;
+        // let reverceTick = true;
+        let tick = () => {
+            tickIsOn = true;
+            intervalId = setInterval(()=>{
+                if (startNumber === finishNaumber) {
+                    clearInterval(intervalId);
+                }
+                count.innerHTML = startNumber++;
+            },1000);
+        }
+        tick();
+        let reverceTick = () => {
+            intervalId = setInterval(()=>{
+                if(startNumber === finishNaumber) {
+                    clearInterval(intervalId);
+                }
+                count.innerHTML = finishNaumber--;
+
+            },1000);
+        }
+        reverceBtn.onclick = () => {
+            if (!tickIsOn) {
+                reverceTick();
+            } else {
+                clearInterval(intervalId);
+                reverceTick();
+                }
+            }
+        pauseBtn.onclick = () => {
+            tickIsOn = false;
+            clearInterval(intervalId);
+        }
+        startBtn.onclick = () => {
+            if (!tickIsOn) {
+                tick();
+            }
+            console.log(intervalId);
+        }
+        resetToZeroBtn.onclick = () => {
+            if (!tickIsOn) {
+                startNumber = 0;
+                count.innerHTML = startNumber;
+                tick();
+            } else {
+                clearInterval(intervalId); 
+                startNumber = 0;
+                count.innerHTML = startNumber;
+                tick();
+            } 
+            console.log(intervalId);
+        }
+        reverceBtn.onclick = () => {
+            if (!tickIsOn) {
+                reverceTick();
+            } else {
+                clearInterval(intervalId);
+                reverceTick();
+                }
+            }
+    </script>
+</body>
+</html>

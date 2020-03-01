@@ -1,0 +1,55 @@
+<!-- Доработайте пример, 005_thisExample.html, при наведении мыши к одному из блоков,
+     цвет блока должен измениться, на уникальный, такой которого еще нету у существующих
+      блоков. Также выведите в блок текстовое оповещение о информации цвета, который
+       используется для фона данного блока. При попытке закрыть вкладку, придупредите
+        пользователя о том что информация будет утеряна. Используйте window.onload.  -->
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Ключевое слово this</title>
+            <style>
+                div {
+                    background-color:rgb(137, 158, 137);
+                    display: block;
+                    height: 100px;
+                    width: 100px;
+                    margin: 10px;
+                    float: left;
+                }
+        
+        
+            </style>
+            <script>
+                window.onload = function () {
+                    let myListDiv = document.getElementsByTagName('div');
+                    console.log(myListDiv);
+                        for(i = 0; i < myListDiv.length; i++) {
+                            myListDiv[i].onmouseover = function (e) {
+                            let randomR=Math.floor(Math.random()*256);
+                            let randomG=Math.floor(Math.random()*256);
+                            let randomB=Math.floor(Math.random()*256);
+                            this.style.backgroundColor = 'rgb('+ randomR + ','+ randomG +','+ randomB +')';
+                            this.innerHTML = this.style.backgroundColor; 
+                        }
+        
+                        let leavePage = document.getElementById('link');
+                        leavePage.onclick = () => {
+                            window.onbeforeunload = function() { 
+                                return "Данные не сохранены. Точно перейти? Не смейте!";
+                            }; 
+                        }
+                };
+            }
+            </script>
+        </head>
+        <body>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <p><a id="link" href="https://www.google.com/">Google</a></p>
+        </body>
+        </html>
+        

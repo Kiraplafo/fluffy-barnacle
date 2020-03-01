@@ -1,0 +1,32 @@
+<!-- Напишите регулярные выражения, которые будут выбирать 
+    индекс - 55535 - 5 numbers
+    ip адресс, пример 255.255.255.255
+    цены в долларах - $0.84, $2.84, $4
+    дата в виде - 30/12/2016 - день, месяц, год
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ </head>
+ <body>
+     <script type="text/javascript">
+        let checkIp = /(\d{1,3}[\.]){3}\d{1,3}/;
+        let ip = "255.255.255.255";
+        document.write("<h4>ip адресс</h4><br/>" + ip + "->" + checkIp.test(ip) + "<br />");
+        
+        let checkIndex = /\d{5}/;
+        let index = "545856";
+        document.write("<h4>Индекс</h4><br/>" + index + "->" + checkIndex.test(index) + "<br />");
+        
+        let checkPriсe = /\$+\d+\.\d{2}|\$+\d+/g  
+        let price = "$0.84, $2.84, $4";
+        document.write("<h4>Индекс</h4><br/>" + price + "->" + checkPriсe.test(price) + "<br />");
+
+        let checkDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
+        let date = "30/12/2016";
+        document.write("<h4>Дата</h4><br />" + date + "->" + checkDate.test(date) + "<br />");
+ 	</script>
+ </body>
+ </html>
