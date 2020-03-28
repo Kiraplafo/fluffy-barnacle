@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        .conteiner {
+            display: flex;
+        }
+        div {
+            width: 150px;
+            /* height: 150px; */
+            background-color:cornflowerblue;
+            flex-direction: row;
+        }
+        .invisible {
+            display: none;
+        }
+    </style>
+</head>
+<body class="conteiner">
+    <!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления. 
+        Используйте только один обработчик. 
+        (делегирование)
+    Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы, подсказка
+     сплыва под ними, а не
+     в модальном окне. Используйте addEventListener -->
+         <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad labore laudantium rerum
+            cumque saepe asperiores repellat ducimus possimus dolore!
+            <button>Delete</button>
+         </div>
+         <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad labore laudantium rerum
+            cumque saepe asperiores repellat ducimus possimus dolore!
+            <button>Delete</button>
+         </div>
+         <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad labore laudantium rerum
+            cumque saepe asperiores repellat ducimus possimus dolore!
+            <button>Delete</button>
+         </div>
+         <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad labore laudantium rerum
+            cumque saepe asperiores repellat ducimus possimus dolore!
+            <button>Delete</button>
+         </div>
+         <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad labore laudantium rerum
+            cumque saepe asperiores repellat ducimus possimus dolore!
+            <button>Delete</button>
+         </div>
+         <script>
+             let myDiv = document.querySelector('.conteiner');
+             if(myDiv) {
+                myDiv.addEventListener('click', function(event) {
+                    let target = event.target;
+                     let myButton = event.target.closest('button');
+                     let parentButton = event.target.parentNode;
+                     parentButton.classList.add('invisible');
+                 })
+             }
+         </script>
+</body>
+</html>

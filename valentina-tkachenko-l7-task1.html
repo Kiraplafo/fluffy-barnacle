@@ -1,0 +1,25 @@
+<!-- Создайте функцию, которая возвращает день недели для даты. День нужно возвратить в формате 
+    - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+       function getWeekDay(date) {
+           let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+           return days[date.getDay()];
+
+       }
+       let date = new Date(2020, 2, 15);
+       let dayNum = date.getDay(date);
+       if(dayNum === 0) {
+        alert(getWeekDay(date) + ' имеет номер ' + '7');
+       } else {
+        alert(getWeekDay(date) + ' имеет номер ' + dayNum);
+       }
+    </script>
+</body>
+</html>

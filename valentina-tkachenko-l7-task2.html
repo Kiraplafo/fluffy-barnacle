@@ -1,0 +1,39 @@
+<!-- Реализуйте последний 2 слайда в презентации с помощью пройденого на
+     уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+        class Man {
+            walk() {
+                alert("I'm walking")
+            }
+            eat() {
+                alert("I'm eating")
+            }
+            drink() {
+                alert("I'm drinking")
+            }
+        }
+        class Soldier extends Man {
+            shoot() {
+                aler("i'm sooting")
+            }
+        }
+        class Doctor extends Man {
+            cure() {
+                alert("i'm curing")
+            }
+        }
+        let solider = new Soldier();
+        solider.eat();
+        let doctor = new Doctor();
+        doctor.walk();
+        
+    </script>
+</body>
+</html>

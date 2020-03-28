@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .div-param {
+            position: absolute;
+            top: 50px;
+            left: 0px;
+            z-index: 1000;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body class="container">
+    <!-- 
+	1. back to top button; drag;
+    2. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается, при попадании
+     div к краю окна, он переходит к началу окна. 
+    -->
+    <div class="div-param"></div>
+    <button class="stop-move">Остановить</button>
+    <button class="start">Начать</button>
+    <button class="back-to-top">На Старт</button>
+    <script src="script.js"></script>
+</body>
+</html>
+       

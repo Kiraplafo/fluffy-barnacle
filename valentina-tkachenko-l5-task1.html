@@ -1,0 +1,61 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт. При клике на ссылку
+ див появляется, если повторно нажать ссылку див и текст должны вернуться. Также создайте кнопку, которая будет
+  отменять выполнение обработчика клика по ссылке. removeevent
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Document</title>
+     <style>
+         #link {
+             font-size: 24px;
+             color: black;
+        }
+         .my-block {
+            background-color: blue;
+            font-size: 20px;
+            text-decoration: none; 
+            display: none;
+        }
+        .btn-stop {
+            background-color: cadetblue;
+            border-radius: 25px;
+        }
+        .block-show {
+            display: block;
+        }
+     </style>
+ </head>
+ <body>
+     <a href="#" id="link">
+         Ссылка
+         <div class="my-block">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, temporibus. Eaque debitis sequi
+            officiis numquam quam, quod vero vel sit voluptates repudiandae rerum expedita, a labore error
+            id non doloribus. Eveniet error odit quia laboriosam recusandae ducimus totam eos excepturi, non
+            aut quam atque ipsam quasi assumenda accusamus provident officiis consequatur. Fugit ex doloremque
+            ad nesciunt esse corrupti perspiciatis ea, a error perferendis odio natus, ipsam consectetur vitae
+            odit consequatur. Quos sunt totam quaerat delectus natus minus possimus tenetur perferendis 
+            veniam adipisci, similique ullam sequi vel quo dolore qui fugit quam voluptatibus amet, optio mollitia
+            tempora. Incidunt praesentium ex quidem!
+         </div>
+     </a>
+     <button class="btn-stop">Отмена</button>
+     <script>
+         let myLink = document.querySelector('#link');
+         let myDiv = document.querySelector('.my-block');
+         let myBtn = document.querySelector('.btn-stop');
+        myLink.addEventListener('click', showMyDiv);
+        function showMyDiv () {
+            myDiv.classList.toggle('block-show')
+            console.log(myDiv.classList);
+        }
+        myBtn.addEventListener('click', removeMyLink);
+        function removeMyLink () {
+            myLink.removeEventListener('click', showMyDiv); 
+        }
+     </script>
+ </body>
+ </html>

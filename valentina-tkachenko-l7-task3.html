@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+        class Doctor {
+            walk() {
+                alert("I'm walking")
+            }
+            eat() {
+                alert("I'm eating")
+            }
+            drink() {
+                alert("I'm drinking")
+            }
+            cure() {
+                alert("i'm curing")
+            }
+        }
+        class Dentist extends Doctor {
+            cure() {
+                alert("dentist treats teeth")
+            }
+        }
+        class Surgeon extends Doctor {
+            cure() {
+                alert("surgeon performs an operation")
+            }
+        }
+        let dentist = new Dentist();
+        dentist.cure();
+        let surgeon = new Surgeon();
+        surgeon.cure();
+        
+    </script>
+</body>
+</html>
